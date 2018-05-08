@@ -1,0 +1,37 @@
+#
+# 项目名
+#
+SET(PROGRAM_NAME example_log)
+
+
+#
+# 获取当前目录下源文件
+#
+TRAVERSE_CURRENT_SOURCE_FILE(SOURCE_FILES)
+
+
+#
+# 链接源文件, 生成可执行文件
+#
+ADD_EXECUTABLE(${PROGRAM_NAME} ${SOURCE_FILES})
+
+
+#
+# 链接库文件
+#
+TARGET_LINK_LIBRARIES(${PROGRAM_NAME}	PUBLIC	tinyCore
+												tcmalloc_and_profiler
+												-L${GPERF_TOOLS_SOFTWARE_LIBRARY_PATH}
+)
+
+
+#
+# 链接头文件
+#
+TARGET_INCLUDE_DIRECTORIES(${PROGRAM_NAME}	PUBLIC	${GPERF_TOOLS_SOFTWARE_INCLUDE_PATH})
+
+
+#
+# 可执行文件的生成目录
+#
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)

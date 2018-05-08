@@ -1,0 +1,36 @@
+#
+# 设置包名
+#
+SET(PROGRAM_NAME Pugixml)
+
+
+#
+# 设置路径
+#
+SET(PUGIXML_SOFTWARE_PATH /home/software/pugixml/pugixml-1.8)
+
+
+#
+# 检查路径
+#
+IF (IS_DIRECTORY ${PUGIXML_SOFTWARE_PATH})
+
+	#
+	# 输出信息
+	#
+	MESSAGE(STATUS "Found " ${PROGRAM_NAME} " Directory : " ${PUGIXML_SOFTWARE_PATH})
+
+	#
+	# 设置路径
+	#
+	SET(PUGIXML_SOFTWARE_LIBRARY_PATH		${PUGIXML_SOFTWARE_PATH}/lib64)
+	SET(PUGIXML_SOFTWARE_INCLUDE_PATH		${PUGIXML_SOFTWARE_PATH}/include)
+
+ELSE()
+
+	#
+	# 输出信息
+	#
+	MESSAGE(FATAL_ERROR "Not Found " ${PROGRAM_NAME} " Directory : " ${PUGIXML_SOFTWARE_PATH})
+
+ENDIF()
